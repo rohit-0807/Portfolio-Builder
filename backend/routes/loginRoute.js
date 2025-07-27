@@ -17,3 +17,5 @@ Router.post('/', async (req, res) => {
    }
 
 });
+
+export default Router;

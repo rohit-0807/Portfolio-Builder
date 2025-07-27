@@ -3,7 +3,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import signRoute from './routes/signupRoute.js';
-
+import loginRoute from './routes/loginRoute.js';
 
 dotenv.config();
 
@@ -30,3 +30,4 @@ mongoose
   });
 
 app.use('/signup', signRoute);
+app.use('/login', loginRoute);

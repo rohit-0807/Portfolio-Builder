@@ -2,9 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-
-// const testRoute =  require('./routes/testRoute') ;
-import testRoute from './routes/testRoute.js';
+import signRoute from './routes/signupRoute.js';
 
 
 dotenv.config();
@@ -31,5 +29,4 @@ mongoose
     console.log(err);
   });
 
-app.use('/api/test', testRoute);
-    
+app.use('/signup', signRoute);

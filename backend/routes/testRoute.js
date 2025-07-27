@@ -7,7 +7,7 @@ Router.post('/', async (req, res) => {
    try {
      const { name, email, password } = req.body;
      const existingUser = await user.findOne({email});
-     if(existingUser) {
+     if(existingUser) { 
       return res.status(400).json({message : "user already exists"});
      }
 

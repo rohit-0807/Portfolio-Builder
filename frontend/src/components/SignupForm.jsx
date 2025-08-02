@@ -3,6 +3,8 @@ import { useState } from 'react'
 
 const SignupForm = () => {
     
+    const [message, setMessage] = useState('');
+    const [error, setError] = useState('');
     const [fromData, setFromData] = useState ({
         name : '',
         email : '',
@@ -29,11 +31,26 @@ const SignupForm = () => {
 
         const data = await response.json();
         console.log(data);
+
+        if(response.ok) {
+            setMessage('signup successfully');
+            setError('');
+            setFromData({name:'',email:'',password:''});
+        } else {
+            setError(data.message , 'signup failed');
+            setMessage('');
+        }
+
        } catch (error) {
         console.error("dignup failed ", error);
+        setError('Signup failed. Please try again later.');
+        setMessage('');
        }
         
     }
+
+  
+    
   return (
     <div>
         <form onSubmit={handleSubmit}>
@@ -63,6 +80,10 @@ const SignupForm = () => {
               <br />
               <button type='submit'>Sign up</button>
         </form>
+
+        {message && <p style={{ color: 'green'}} > {message} </p>}
+        {error && <p style={{ color: 'red'}}> {error} </p>}
+
     </div>
   )
 }

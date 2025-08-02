@@ -3,7 +3,7 @@ import User from '../modules/user.js';
 
 const protect = async (req, res, next) => {
     let token;
-
+    // console.log("Request headers:", req.headers);
     if(
         req.headers.authorization && req.headers.authorization.startsWith('zoro')
     ){

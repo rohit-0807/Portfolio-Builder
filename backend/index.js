@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import signRoute from './routes/signupRoute.js';
 import loginRoute from './routes/loginRoute.js';
 import userRoute from './routes/userRoute.js';
+import updateUserRoute from './routes/updateUserRoute.js';
 
 dotenv.config();
 
@@ -33,3 +34,4 @@ mongoose
 app.use('/signup', signRoute);
 app.use('/login', loginRoute);
 app.use('/profile', userRoute);
+app.use('/profile/update',updateUserRoute);
